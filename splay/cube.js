@@ -16,7 +16,7 @@ class Cube {
 
     constructor(x, y) {
         this.dS = random(-2, 2);
-        this.size = int(random(10, height/2));
+        this.size = 1;
         this.angle = random(360);
         this.posX = x;
         this.posY = y;
@@ -83,7 +83,8 @@ class Cube {
         //if (size <= 0 || size >= MAX_SIZE) {
         //  dS *= -1;
         //}
-        // this.size += this.dS;
+        if (this.size < MAX_SIZE)
+            this.size += this.dS;
     }
 
 }

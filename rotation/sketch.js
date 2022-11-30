@@ -9,9 +9,32 @@
 let angle = 0;
 
 let points = [];
+let grow = false;
+let size = 1;
+let dS, dA;
+const MAX_SIZE = 720;
+
+function doubleClicked() {
+  background(0);
+}
+
+function mousePressed() {
+  loop();
+}
+
+function mouseReleased() {
+  noLoop();
+}
 
 function setup() {
   createCanvas(640, 480);
+  if (window.location.search.includes('grow')) {
+    grow = true;
+    dS = int(random(1, 10));
+    dA = random(-0.03, 0.03);
+  } else {
+    dA = 0.01;
+  }
 
   points[0] = createVector(-0.5, -0.5, -0.5);
   points[1] = createVector(0.5, -0.5, -0.5);
@@ -21,10 +44,18 @@ function setup() {
   points[5] = createVector(0.5, -0.5, 0.5);
   points[6] = createVector(0.5, 0.5, 0.5);
   points[7] = createVector(-0.5, 0.5, 0.5);
+  noLoop();
 }
 
 function draw() {
-  background(0);
+
+  if (grow) {
+    size += dS;
+    // if (frameCount % 128 == 0) background(0);
+  } else {
+    background(0);
+  }
+
   translate(width / 2, height / 2);
 
   const rotationZ = [
@@ -59,7 +90,7 @@ function draw() {
     ];    
     let projected2d = matmul(projection, rotated);
 
-    projected2d.mult(300);
+    projected2d.mult(grow ? size : 300);
     projected[i] = projected2d;
     //point(projected2d.x, projected2d.y);
   }
@@ -79,7 +110,13 @@ function draw() {
     connect(i, i + 4, projected);
   }
 
-  angle += 0.01;
+  angle += dA;
+
+  if (size < 0 || size > MAX_SIZE) {
+    dS *= -1;
+    dA = random(-0.03, 0.03);
+  }
+
 }
 
 function connect(i, j, points) {
