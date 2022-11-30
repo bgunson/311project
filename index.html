@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <style>
-        html, body {
+        html,
+        body {
             text-align: center;
         }
+
         iframe {
             border: none;
+            -webkit-user-select: none;
+            /* Safari */
+            -ms-user-select: none;
+            /* IE 10 and IE 11 */
+            user-select: none;
+            /* Standard syntax */
         }
+
         iframe:hover {
             cursor: pointer;
         }
@@ -16,15 +25,15 @@
 </head>
 
 <body style="background-color:#00363a">
-    <iframe loading="lazy" scrolling="no" height="480" width="640" src="rotation"></iframe>
+    <iframe id="rotation" loading="lazy" scrolling="no" height="480" width="640" src="rotation"></iframe>
 
-    <br/><br/><br/>
+    <br /><br /><br />
 
-    <iframe loading="lazy" scrolling="no" height="480" width="640" src="rotation/?grow"></iframe>
+    <iframe id="grow" loading="lazy" scrolling="no" height="480" width="640" src="rotation/?grow"></iframe>
 
-    <br/><br/><br/>
+    <br /><br /><br />
 
-    <iframe loading="lazy" scrolling="no" height="480" width="640" src="splay"></iframe>
+    <iframe id="splay" loading="lazy" scrolling="no" height="480" width="640" src="splay"></iframe>
 </body>
 
 </html>
