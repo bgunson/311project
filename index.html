@@ -8,27 +8,31 @@
             text-align: center;
         }
 
-        iframe {
-            border: none;
+        section {
             margin: 8% 0;
         }
 
-        iframe:hover {
-            cursor: pointer;
+        iframe {
+            border: none;
         }
     </style>
 </head>
 
 <body style="background-color:#00363a">
-    <iframe id="rotation" loading="lazy" scrolling="no" height="480" width="480" src="rotation"></iframe>
+    <section id="rotation">
+        <iframe loading="lazy" scrolling="no" height="480" width="480" src="rotation"></iframe>
+        <br>
+        From: <a href="https://editor.p5js.org/codingtrain/sketches/r8l8XXD2A">https://editor.p5js.org/codingtrain/sketches/r8l8XXD2A</a>
+    </section>
 
-    <br /><br /><br />
+    <section id="grow">
+        <iframe loading="lazy" scrolling="no" height="480" width="480" src="rotation/?grow"></iframe>
+    </section>
 
-    <iframe id="grow" loading="lazy" scrolling="no" height="480" width="480" src="rotation/?grow"></iframe>
+    <section id="splay">
+        <iframe loading="lazy" scrolling="no" height="480" width="480" src="splay"></iframe>
+    </section>
 
-    <br /><br /><br />
-
-    <iframe id="splay" loading="lazy" scrolling="no" height="480" width="480" src="splay"></iframe>
 </body>
 
 </html>
