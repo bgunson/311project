@@ -27,7 +27,8 @@ class Cube {
     }
 
     setStroke() {
-        stroke(this.r+random(-80,80), this.g, this.b+random(-100, 100));
+        // strokeWeight(int(random(1,4)));
+        stroke(this.r+random(-80,80), this.g, this.b+random(-100, 100), random(100,255));
     }
 
 
@@ -49,7 +50,7 @@ class Cube {
         // line(this.frame[3][0], this.frame[3][1], this.frame[7][0], this.frame[7][1]);
     }
 
-    draw() {
+    draw(beziers) {
         var cube_vertex = verticies.map(v => v.map(vv => vv*this.size));
         for (var i = 0; i < 8; i++) {
 
@@ -72,9 +73,13 @@ class Cube {
             this.frame[i][0] = rotxxx;
             this.frame[i][1] = rotyyy;
             this.frame[i][2] = rotzzz;
-            // point(rotxxx, rotyyy);     // dots spiral
-            line(this.posX, this.posY, rotxxx, rotyyy); // lines
 
+            if (beziers) {
+                noFill();
+                bezier(rotzzz + this.posX, rotzzz + this.posY, this.posX, this.posY, rotxxx, rotyyy, rotxx + this.posX, rotyy + this.posY);
+            } else {
+                line(this.posX, this.posY, rotxxx, rotyyy);
+            }
         }
         this.angle += this.dS;
         // this.drawWireframe();

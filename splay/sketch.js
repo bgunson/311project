@@ -1,6 +1,7 @@
 var cube;
 var cubes = [];
 let looping = false;
+let beziers = false;
 
 function mousePressed() {
     if (looping) {
@@ -18,8 +19,11 @@ function doubleClicked() {
 function setup() {
     createCanvas(480, 480);
     background(0);
+    noSmooth();
 
-    var num = int(random(1, 8));
+    beziers = window.location.search.includes("bezier");
+
+    var num = int(random(1, 6));
     for (var i = 0; i < num; i++) {
         var x = random(width);
         var y = random(height);
@@ -42,7 +46,7 @@ function draw() {
         // stroke(r+random(-80,80), g, b+random(-100, 100));
         // strokeWeight(2);
         c.setStroke();
-        c.draw();
+        c.draw(beziers);
     });
     delay(50);
 }
