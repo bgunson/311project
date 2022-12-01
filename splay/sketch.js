@@ -12,12 +12,12 @@ function mousePressed() {
   }
 
 function doubleClicked() {
-    background(255);
+    background(0);
 }
 
 function setup() {
     createCanvas(480, 480);
-    background(255);
+    background(0);
 
     var num = int(random(1, 8));
     for (var i = 0; i < num; i++) {
