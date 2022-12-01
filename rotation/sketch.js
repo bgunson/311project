@@ -10,9 +10,10 @@ let angle = 0;
 
 let points = [];
 let grow = false;
-let size = 1;
 let dS, dA;
-const MAX_SIZE = 720;
+const MAX_SIZE = 480;
+const MIN_SIZE = 10;
+let size = MIN_SIZE;
 let looping = false;
 
 function doubleClicked() {
@@ -33,7 +34,7 @@ function mousePressed() {
 // }
 
 function setup() {
-  createCanvas(640, 480);
+  createCanvas(480, 480);
   if (window.location.search.includes('grow')) {
     grow = true;
     dS = int(random(1, 10));
@@ -57,7 +58,7 @@ function draw() {
 
   if (grow) {
     size += dS;
-    // if (frameCount % 128 == 0) background(0);
+    if (frameCount % 128 == 0) background(0);
   } else {
     background(0);
   }
@@ -118,7 +119,7 @@ function draw() {
 
   angle += dA;
 
-  if (size < 0 || size > MAX_SIZE) {
+  if (size < MIN_SIZE || size > MAX_SIZE) {
     dS *= -1;
     dA = random(-0.03, 0.03);
   }

@@ -16,10 +16,10 @@ function doubleClicked() {
 }
 
 function setup() {
-    createCanvas(640, 480);
+    createCanvas(480, 480);
     background(255);
 
-    var num = int(random(1, 10));
+    var num = int(random(1, 8));
     for (var i = 0; i < num; i++) {
         var x = random(width);
         var y = random(height);
