@@ -13,18 +13,24 @@ let grow = false;
 let size = 1;
 let dS, dA;
 const MAX_SIZE = 720;
+let looping = false;
 
 function doubleClicked() {
   background(0);
 }
 
 function mousePressed() {
-  loop();
+  if (looping) {
+    noLoop();
+  } else {
+    loop();
+  }
+  looping = !looping;
 }
 
-function mouseReleased() {
-  noLoop();
-}
+// function mouseReleased() {
+//   noLoop();
+// }
 
 function setup() {
   createCanvas(640, 480);

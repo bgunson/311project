@@ -1,13 +1,15 @@
 var cube;
 var cubes = [];
+let looping = false;
 
 function mousePressed() {
-    loop();
-}
-
-function mouseReleased() {
-    noLoop();
-}
+    if (looping) {
+      noLoop();
+    } else {
+      loop();
+    }
+    looping = !looping;
+  }
 
 function doubleClicked() {
     background(255);
