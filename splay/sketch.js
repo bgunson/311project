@@ -19,7 +19,7 @@ function setup() {
     createCanvas(480, 480);
     background(0);
 
-    var num = int(random(1, 8));
+    var num = int(random(1, 6));
     for (var i = 0; i < num; i++) {
         var x = random(width);
         var y = random(height);

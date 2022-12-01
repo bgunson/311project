@@ -73,8 +73,9 @@ class Cube {
             this.frame[i][1] = rotyyy;
             this.frame[i][2] = rotzzz;
             // point(rotxxx, rotyyy);     // dots spiral
-            line(this.posX, this.posY, rotxxx, rotyyy); // lines
-
+            // line(this.posX, this.posY, rotxxx, rotyyy); // lines
+            noFill();
+            bezier(rotzzz + this.posX, rotzzz + this.posY, this.posX, this.posY, rotxxx, rotyyy, rotxx + this.posX, rotyy + this.posY);
         }
         this.angle += this.dS;
         // this.drawWireframe();
