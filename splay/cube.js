@@ -1,5 +1,5 @@
 
-const MAX_SIZE = 960;
+const MAX_SIZE = 120;
 
 var verticies = [
     [-1, -1, 1],
@@ -15,7 +15,8 @@ var verticies = [
 class Cube {
 
     constructor(x, y) {
-        this.dS = random(-2, 2);
+        this.dS = random(2);
+        this.dA = random(-0.2, 0.2)
         this.size = 1;
         this.angle = random(360);
         this.posX = x;
@@ -28,7 +29,7 @@ class Cube {
 
     setStroke() {
         // strokeWeight(int(random(1,4)));
-        stroke(this.r+random(-80,80), this.g, this.b+random(-100, 100), random(100,255));
+        stroke(this.r+random(-50,50), this.g+random(-50, 50), this.b+random(-50, 50), random(100,255));
     }
 
 
@@ -51,6 +52,12 @@ class Cube {
     }
 
     draw(beziers) {
+        if (this.size < MAX_SIZE) {
+            this.size += this.dS;
+            this.angle += this.dS;
+        } else {
+            return;
+        }
         var cube_vertex = verticies.map(v => v.map(vv => vv*this.size));
         for (var i = 0; i < 8; i++) {
 
@@ -81,15 +88,13 @@ class Cube {
                 line(this.posX, this.posY, rotxxx, rotyyy);
             }
         }
-        this.angle += this.dS;
         // this.drawWireframe();
         // this.angle %= 360;
 
         //if (size <= 0 || size >= MAX_SIZE) {
         //  dS *= -1;
         //}
-        if (this.size < MAX_SIZE)
-            this.size += this.dS;
+
     }
 
 }

@@ -3,35 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <style>
-        html,
+        
         body {
             text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 10px 10vw;
+            font-weight: bolder;      
+        }
+
+        p {
+            text-align: left;
         }
 
         section {
             margin: 8% 0;
         }
 
+        a {
+            color:aquamarine;
+        }
+
+
         iframe {
-            border: none;
+            border: 2px solid green;
         }
     </style>
 </head>
 
-<body style="background-color:#00363a">
+<body style="background-color:black; color: green;">
+    <h1>An Artistic Representation of a Photon</h1>
+    <h2>ART 311 Project</h2>
+    <h3>Bennett Gunson</h3>
+    <hr>
+    <p>
+        Initially, I began this project under the "green" theme. THe first thing that came to mind when I thought of green was not the typical
+        things like plants, environment, recycling, whatever. Instead I thought of old computer terminals consisting of text-only prompts with the classic
+        green courier font much like this web page.
+    </p>
+    <p>
+        I started with my fascination of <a href="https://en.wikipedia.org/wiki/3D_projection">3D projection</a>, something that goes beyond my very limited
+        grasp of linear algebra I attained from my first year math course. Previously I had spent time programming small LCD/OLED displays with 
+        very primitive graphics and had drawn the rotation of a projected cube. Below you can see the graphic I am speaking on, click the frame to begin the animation.
+    </p>
     <section id="rotation">
         <iframe loading="lazy" scrolling="no" height="480" width="480" src="rotation"></iframe>
         <br>
-        From: <a href="https://editor.p5js.org/codingtrain/sketches/r8l8XXD2A">https://editor.p5js.org/codingtrain/sketches/r8l8XXD2A</a>
+        <small><a href="https://editor.p5js.org/codingtrain/sketches/r8l8XXD2A">https://editor.p5js.org/codingtrain/sketches/r8l8XXD2A</a></small>
     </section>
+    <p>
+        This simple animation can be altered to create interesting patterns. In the above animation we are wiping the screen of the prior frame 
+        each time we draw which gives the effect that the cube is rotating. If we do not wipe the screen each iteration, then all previous cubes
+        remain drawn. Their overlapping edges and vertices create very unique shapes and if we alter the size of the cube each frame then these shapes 
+        become even more apparent. The cube's rotation is also different each time it reaches its min/max size and chosen at random from an interval
+        spanning small negative and positive floating point numbers. A negative rotation delta represents counter-clockwise rotation and positive vice-versa. 
+        Click to  play the animation below.
+    </p>
 
     <section id="grow">
         <iframe loading="lazy" scrolling="no" height="480" width="480" src="rotation/?grow"></iframe>
     </section>
 
+    <p>
+       As this stands, these animations are still very simple but the do represent my initial perception of the green theme. Old text-only 
+       computer operating systems were simple in nature and so is a rotating cube. I was originally prototyping this project using Processing using a 
+       different projection algorithm as anchored above. When I went to translate the implementation from Processing to JavaScript the animation broke
+       entirely. So, I tried my best to find the flaw and get it working which I could not do. In my attempt to salvage the cube rotation I accidentally
+       created something quite beautiful. In the next animation, we do not draw edges from the vertices which represent the frame of the cube but 
+       from each vertex to the origin of the cube. In this case the origin is the center of the canvas. We allow the rotation to continue and spawn
+       anywhere from 1 to 5 "cubes" on top of each other, all with different colour profiles, sizes, and rotation deltas. The result can be seen below. 
+    </p>
+
     <section id="splay">
         <iframe loading="lazy" scrolling="no" height="480" width="480" src="splay"></iframe>
     </section>
+
+    <p>
+        At this point, my sketches do not much represent the green theme anymore. To me the sketch above makes me feel as if I am a photon 
+        racing through a fibre optic cable at the speed of light. So this made me ponder my own perception of a photon. Photons can behave as both 
+        a wave and a particle, but what do they look like? We may never know so the least I can do is try to represent one artistically.
+    </p>
+    <p>
+        Here begins my artistic interpretation of the quantum mystery: the photon. I took the above sketch and replaced the straight, unnatural
+        lines from the vertices to the origin with bezier curves. The curves are defined using variables from the rotation logic at random. Basically, I 
+        chose anchor points which added an exaggerated curve but to the point where the end shape is not unnatural. I believe a photon to be somewhat
+        natural in its existence. They are the basis for pretty much all life and energy in the universe. Play the animation below, double-click to reset the 
+        sketch. Each time or page refresh you will see a different representation of a photon, each with different colours, shapes, and feelings.
+    </p>
 
     <section id="beziers">
         <iframe loading="lazy" scrolling="no" height="480" width="480" src="splay/?beziers"></iframe>

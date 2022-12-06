@@ -13,7 +13,7 @@ function mousePressed() {
   }
 
 function doubleClicked() {
-    background(0);
+    setup();
 }
 
 function setup() {
@@ -23,6 +23,7 @@ function setup() {
 
     beziers = window.location.search.includes("bezier");
 
+    cubes = [];
     var num = int(random(1, 6));
     for (var i = 0; i < num; i++) {
         var x = random(width);
